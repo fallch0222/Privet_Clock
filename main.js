@@ -1,7 +1,5 @@
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
-ctx.font = "30px Arial";
-
 
 
 const sleep = ((delay) => {
@@ -20,6 +18,15 @@ const zerroAdder = (num) => {
     }
 }
 
+var fontBase = canvas.width,                   // selected default width for canvas
+    fontSize = 20;                     
+    var size = 0;
+function getFont() {
+    var ratio = fontSize / fontBase;   // calc ratio
+    size = canvas.width * ratio;   // get font size based on current width
+    return (size|0) + 'px sans-serif'; // set font
+}
+
 const currentTime = (() => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     let date = new Date();
@@ -29,14 +36,15 @@ const currentTime = (() => {
     minutes = zerroAdder(minutes);
     seconds = zerroAdder(seconds);
     let time = `${hours}:${minutes}:${seconds}`;
-    ctx.fillText(time.toString(), 0, 0 , canvas.width);
-    console.log("filling compleated" + time.toString());
+    ctx.font = getFont();
+
+    ctx.fillText(time, canvas.width / 2 - ctx.measureText(time).width /2, canvas.height / 2);
     return;
 });
 
 const updateSize = () => {
-    canvas.width = screen.width - 100;
-    canvas.height = screen.height - 100;
+    canvas.width = screen.width;
+    canvas.height = screen.height - 50;
     
 }
 
