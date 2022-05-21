@@ -7,8 +7,9 @@ const sleep = ((delay) => {
     while (new Date().getTime() < start + delay);
 });
  
-const TextClear = (async () =>{
-    ctx.TextClear();
+const Clear = (async () =>{
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+
     return;
 });
 
@@ -26,15 +27,15 @@ const currentTime = (async () => {
 });
 
 
-while(true){
-    currentTime();
-
-    await sleep(1000);
-    setTimeout(() => {
-       await TextClear();
+const updateText = () => {
+    setTimeout(()=>{
+      //currentTime 안에서 ctx.TextClear()해도 좋을듯
+      Clear();
+      currentTime();
+      updateText();
     }, 1000);
-}
-
+  };
+  updateText();
 
 
 
