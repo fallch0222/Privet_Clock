@@ -16,7 +16,7 @@ function getFont() {
     return `${size ?? 0}px Arial`; // set font
 }
 
-const fillZero = num => num.toString().padStart(2, '0');
+const fillZero = num => num.toString().padStart(2, '0'); //fill 0 if number is more than 10
 
 const sizeSliderInput = (size) => {
     console.log(size);
@@ -42,6 +42,12 @@ const updateSize = () => {
     canvas.width = screen.width;
     canvas.height = screen.height;
     
+}
+
+const resetSize = () => {
+    fontSize = 50;
+    updateText();
+    sizeSlider.sizeSlider.value = 50;
 }
 
 const updateText = () => {
