@@ -1,10 +1,12 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
+const title = document.getElementById("Title");
+
+const sizeSlider = document.createRange("sizeSlider");
 
 
-                
-let fontSize = 25; 
+let fontSize = 50; 
 const fontBase = canvas.width;                     
 
 function getFont() {
@@ -15,6 +17,13 @@ function getFont() {
 }
 
 const fillZero = num => num.toString().padStart(2, '0');
+
+const sizeSliderInput = (size) => {
+    console.log(size);
+    fontSize = size;
+    updateText();
+    return;
+}
 
 const currentTime = () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -42,6 +51,9 @@ const updateText = () => {
       updateText();
     }, 1000);
 };
+
+updateSize();
+currentTime();
 updateText();
 
 

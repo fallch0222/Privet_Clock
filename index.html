@@ -4,13 +4,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main page</title>
+    <title id = "Title">Main page</title>
 </head>
 <body>
     <link rel="stylesheet" href="./style.css">
-    <h1><canvas id="canvas"></canvas>
+    <div class ="timerCanvas">
         
-    </h1>
+        <canvas id="canvas"></canvas>
+    </div>
+
+    <div class ="controller">
+        <div class ="size controller">
+            <p>Clock size controller</p>
+            <input type="range" min="1" value="50" max="100" oninput="sizeSliderInput(this.value)" id="sizeSlider">
+            
+            <p>Reset size</p>
+            <input type="button" onclick="resetSize()" value="Rest" id="Reset">
+        </div>
+    </div>
+        
+    
     <script src="./main.js"></script>
 </body>
 </html>
