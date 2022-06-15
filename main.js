@@ -1,10 +1,8 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
-
 const title = document.getElementById("Title");
-
 const sizeSlider = document.createRange("sizeSlider");
-
+const sizeController = document.getElementsByClassName("size controller");
 
 let fontSize = 50; 
 const fontBase = canvas.width;                     
@@ -47,7 +45,15 @@ const updateSize = () => {
 const resetSize = () => {
     fontSize = 50;
     updateText();
+    upadteController();
     sizeSlider.sizeSlider.value = 50;
+}
+
+const upadteController = () => {
+    sizeController.forEach(element => {
+        element.style.width = `${canvas.width / 10}px`;
+        element.style.height = `${canvas.height / 10}px`;
+    })
 }
 
 const updateText = () => {
@@ -55,13 +61,14 @@ const updateText = () => {
       updateSize();
       currentTime();
       updateText();
+      upadteController();
     }, 1000);
 };
 
 updateSize();
 currentTime();
 updateText();
-
+upadteController();
 
 
  
