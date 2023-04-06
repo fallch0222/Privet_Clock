@@ -7,7 +7,7 @@
     <title id = "Title">Main page</title>
 </head>
 <body>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="style.css">
     <div class ="timerCanvas">
         
         <canvas id="canvas"></canvas>
@@ -15,10 +15,10 @@
 
     <div class ="controller">
         <div class ="size controller">
-            <p>Clock size controller</p>
-            <input type="range" min="1" value="50" max="100" oninput="sizeSliderInput(this.value)" id="sizeSlider">
-            <p>Reset size</p>
-            <input type="button" onclick="resetSize()" value="Rest" id="Reset">
+            <p>Size Controller</p>
+            <input type="range" min="1" value="50" max="100" oninput="sizeSliderInput(this.value)" value="" class="sizeSlider" id="sizeSlider">
+            <p id="sizeValue" class="info">50</p>
+            <input type="button" onclick="resetSize()" value="Reset" id="Reset" class="ResetButton">
         </div>
     </div>
         

@@ -3,14 +3,15 @@ const ctx = canvas.getContext("2d");
 
 const title = document.getElementById("Title");
 
-const sizeSlider = document.createRange("sizeSlider");
+const sizeSlider = document.getElementById("sizeSlider");
+const sizeVlaue = document.getElementById("sizeValue");
+
 
 
 let fontSize = 50; 
 const fontBase = canvas.width;                     
 
-function getFont() {
-     
+const getFont = () =>{
     const ratio = fontSize / fontBase;   
     const size = canvas.width * ratio;   // get font size based on current width
     return `${size ?? 0}px Arial`; // set font
@@ -19,6 +20,7 @@ function getFont() {
 const fillZero = num => num.toString().padStart(2, '0'); //fill 0 if number is more than 10
 
 const sizeSliderInput = (size) => {
+    sizeVlaue.innerText = size;
     console.log(size);
     fontSize = size;
     updateText();
@@ -33,8 +35,8 @@ const currentTime = () => {
     const seconds = fillZero(date.getSeconds());
 
     const time = `${hours}:${minutes}:${seconds}`;
-
     ctx.font = getFont();
+    console.debug(ctx.font);
     ctx.fillText(time, canvas.width / 2 - ctx.measureText(time).width /2, canvas.height / 2);
 };
 
@@ -47,8 +49,13 @@ const updateSize = () => {
 const resetSize = () => {
     fontSize = 50;
     updateText();
-    sizeSlider.sizeSlider.value = 50;
+    //set sizeSlider as fontSize
+    sizeSlider.value = fontSize;
+    sizeVlaue.innerText = fontSize;
 }
+
+const sliderSize = () => {}
+
 
 const updateText = () => {
     setTimeout(()=>{
