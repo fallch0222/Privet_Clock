@@ -11,6 +11,7 @@ const sizeVlaue = document.getElementById("sizeValue");
 let fontSize = 50; 
 const fontBase = canvas.width;                     
 
+
 const getFont = () =>{
     const ratio = fontSize / fontBase;   
     const size = canvas.width * ratio;   // get font size based on current width
@@ -19,10 +20,15 @@ const getFont = () =>{
 
 const fillZero = num => num.toString().padStart(2, '0'); //fill 0 if number is more than 10
 
+
 const sizeSliderInput = (size) => {
     sizeVlaue.innerText = size;
     console.log(size);
     fontSize = size;
+    $(function(){
+        $.cookie('previous size',size );
+        console.log($.cookie('previous size'));
+    });
     updateText();
     return;
 }
@@ -54,7 +60,7 @@ const resetSize = () => {
     sizeVlaue.innerText = fontSize;
 }
 
-const sliderSize = () => {}
+
 
 
 const updateText = () => {
@@ -65,6 +71,9 @@ const updateText = () => {
     }, 1000);
 };
 
+fontSize = $.cookie('previous size');
+sizeSlider.value = fontSize;
+sizeVlaue.innerText = fontSize;
 updateSize();
 currentTime();
 updateText();
