@@ -1,31 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id = "Title">Responsive Clock</title>
+    <title>나의 포트폴리오</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+        .github-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
-    <link rel="stylesheet" href="./style.css">
-    <div class ="timerCanvas">
-        
-        <canvas id="canvas"></canvas>
-    </div>
-
-    <div class ="controller">
-        <div class ="size controller">
-            Clock size controller
-            <input type="range" min="1" value="50" max="100" oninput="sizeSliderInput(this.value)" id="sizeSlider">
+    <header>
+        <h1>나의 포트폴리오</h1>
+    </header>
+    <div class="container">
+        <h2>Github 프로필</h2>
+        <p>내 Github 계정과 저장소에 대한 링크:</p>
+        <p><a href="https://github.com/your_username">Github 계정</a></p>
+        <p><a href="https://github.com/your_username/repository">Github Repository</a></p>
+        <div class="github-link">
+            <a href="https://github.com/your_username"><img src="github_logo.png" alt="Github 로고" width="100"></a>
         </div>
-
-        <div class="reset controller">
-            Reset size
-            <input type="button" onclick="resetSize()" value="Reset" id="Reset">
-        </div>
+        <h2>연락처 정보</h2>
+        <p>문의 사항이 있으시면 언제든지 연락주세요:</p>
+        <p>Email: your_email@example.com</p>
+        <p>Phone: 010-1234-5678</p>
     </div>
-        
-    
-    <script src="./main.js"></script>
+    <footer>
+        &copy; 2024 나의 포트폴리오. 모든 권리 보유.
+    </footer>
 </body>
 </html>
